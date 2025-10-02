@@ -65,14 +65,17 @@ int main() {
                 cout << "In this game, you will try to guess a number between 1 and 100." << endl;
                 cout << "You will have 3 attempts to guess the correct number." << endl;
 
+                char playAgain;
+
+                do {
                 // Limit the number of attempts to 3
                 int limit = 3; 
                 int count = 0;
+                int randomNumber = (rand() % 100) + 1; // Random number between 1 and 100
 
                 do {
                     // std::cout << "Count." << count << std::endl;
                     // Generate random number between 1 and 100
-                    int randomNumber = (rand() % 100) + 1; // Random number between 1 and 100
 
                     // Get user's guess with validation loop
                     cout << "Enter your guess (1-100): ";
@@ -93,21 +96,31 @@ int main() {
                     }
 
                     count++; // Increment attempt count
+                    cout << "Attempt " << count << " of " << limit << "." << endl;
+                    cout << "Try again." << endl;
 
                     if (userGuess < randomNumber) {
-                        cout << "Too low! Try again." << endl;
+                        cout << "Too low!" << endl;
                     }
 
                     else if (userGuess > randomNumber) {
-                        cout << "Too high! Try again." << endl;
+                        cout << "Too high!" << endl;
                     }
 
-                    else (userGuess == randomNumber); {
+                    else if (userGuess == randomNumber) {
                         cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
                         break; // Exit the loop if the user guesses correctly
                     }
-                
+                    if (count == limit) {
+                        cout << "Sorry, you've used all your attempts. The correct number was " << randomNumber << "." << endl;
+                    }
                 } while (count < limit);
+                
+                // Ask if the user wants to play again
+                    cout << "Do you want to play again? (y/n): ";
+                    cin >> playAgain;
+
+            } while  (tolower(playAgain) == 'y');
 
                 cout << "Returning to main menu..." << endl;
                 break;
@@ -156,7 +169,11 @@ int main() {
                     else {
                         cout << "No doubles rolled. It's a draw!" << endl;
                     }
+                    // Ask if the user wants to play again
+                    cout << "Do you want to play again? (y/n): ";
+                    cin >> playAgain;
                 } while (tolower(playAgain) == 'y');
+
                 cout << "Returning to main menu..." << endl;
                 break;
             } // End of case 2
@@ -165,6 +182,9 @@ int main() {
             case 3:
                 // Lottery logic here
                 cout << "Hello, " << firstName << " welcome to the Lottery!" << endl;
+
+                
+
 
                 cout << "Returning to main menu..." << endl;
                 break;
@@ -201,57 +221,3 @@ int main() {
 return 0;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// {
-//     // Title and group info
-//     cout << " MINI ARCADE \n";
-//     cout << "Written by Mariam Mueen\n";
-//     cout << "and Fayzabanu Diwan\n";
-//     cout << "Group 9\n\n";
-
-//     // Step 1: Get player details
-//     string firstName, lastName;
-//     cout << "Please enter your first name: ";
-//     cin >> firstName;
-//     cout << "Please enter your last name: ";
-//     cin >> lastName;
-
-//     cout << "\nHello " << firstName << " " << lastName << "!\n";
-
-//     // Ask if they want to play
-//     char playChoice;
-//     cout << "Would you like to play a game? (Y/N): ";
-//     cin >> playChoice;
-//     playChoice = toupper(playChoice);
-
-//     if (playChoice == 'Y') {
-//         // Show main menu
-//         cout << "\n Choose your game\n";
-//         cout << "1 -  Guessing Game\n";
-//         cout << "2 -  Roll the Dice\n";
-//         cout << "3 -  Lottery\n";
-//         cout << "4 -  Exit\n";
-//         cout << "\nEnter your choice (1-4): ";
-//         //  We'll add logic for choices in the next step
-//     }
-//     else {
-//         cout << "\nThank you, " << firstName << "! See you next time \n";
-//     }
-
-//     return 0;
-// }
-
-
