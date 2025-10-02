@@ -2,24 +2,22 @@
 #include <string>
 #include <cmath>
 #include <ctime>
+#include <limits>
 using namespace std; 
 
 /*
 // PROGRAM OUTLINE
-PART A: INTRODUCTION
-        TITLE
-        GROUP MEMBERS
-        GET NAME FROM USER
-        GAME CHOICE SCREEN LOOP 
-PART B: GAME 1: Guessing Game 
-Part C: GAME 2: Roll the dice
-Part D: GAME 3: Lottery 
+PART A: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
+PART B: GAME 1: Guessing Game (Mariam)
+Part C: GAME 2: Roll the dice (Fayzabanu)
+Part D: GAME 3: Lottery (Mariam)
 */
 
 int main() {
     // Declare variables 
     string firstName, lastName;
     int gameChoice;
+    srand(static_cast<unsigned int>(time(0))); // Seed random number generator
 
     // Ask for players first and last name
     cout << "Welcome to The Mini Arcade!!\n" << endl;
@@ -45,6 +43,7 @@ int main() {
         cout << "5. Exit" << endl;
         cout << "================================"<< endl;
         cout << "Please enter the number of the game you would like to play: ";
+
         cin >> gameChoice;
             if (!cin) {
                 cout << "Invalid input. Please enter a number between 1 and 5." << endl;
@@ -55,6 +54,7 @@ int main() {
 
         // Game choice logic. 
         switch(gameChoice) {
+        /* ========== GAME 1: GUESSING GAME ========== */
             case 1:
                 // Guessing game logic here
                 cout << "Hello, " << firstName << " welcome to the Guessing Game!" << endl;
@@ -62,13 +62,54 @@ int main() {
                 cout << "Returning to main menu..." << endl;
                 break;
 
+        /* ========== GAME 2: ROLL THE DICE ========== */
             case 2:
+
+                // Game 2: Roll the Dice - Loop begins here
+
+                char playAgain;
+                do {
                 // Roll the dice logic here
                 cout << "Hello, " << firstName << " welcome to Roll the Dice!" << endl;
-                cout << "Game 2 will run here."<< endl;
+                
+                    // Fayzabanu's code will go here
+                    // --------- GAME 2: Roll the Dice with full validation ---------
+
+                    cout << "Hello, " << firstName << " welcome to Roll the Dice!" << endl;
+                    cout << "In this game, you will roll two dice and try to get 2 matching numbers!" << endl;
+                    cout << "If you get doubles, you win!" << endl;
+                    cout << "Press Enter to roll the dice...";
+
+                    // roll dice when user presses enter
+                    int userDie1 = (rand()% 6) + 1; // Random number between 1 and 6
+                    int UserDie2 = (rand()% 6) + 1; // Random number between 1 and 6
+
+                    // roll dice for computer
+                    int compDie1 = (rand()% 6) + 1; // Random number between 1 and 6
+                    int compDie2 = (rand()% 6) + 1; // Random number between 1 and 6
+
+                    // Print the results
+                    cout << "\nYou rolled: " << userDie1 << " and " << UserDie2 << endl;
+                    cout << "The computer rolled: " << compDie1 << " and " << compDie2 << endl; 
+
+                    // Determine the winner
+                    if (userDie1 == UserDie2 && compDie1 == compDie2) {
+                        cout << "It's a tie! Both you and the computer rolled doubles!" << endl;
+                    } 
+                    else if (userDie1 == UserDie2) {
+                        cout << "Congratulations " << firstName << "! You win with doubles!" << endl;
+                    } 
+                    else if (compDie1 == compDie2) {
+                        cout << "The computer wins with doubles! Better luck next time, " << firstName << "!" << endl;
+                    } 
+                    else {
+                        cout << "No doubles rolled. It's a draw!" << endl;
+                    }
+                } while (tolower(playAgain) == 'y');
                 cout << "Returning to main menu..." << endl;
                 break;
 
+        /* ========== GAME 3: LOTTERY ========== */
             case 3:
                 // Lottery logic here
                 cout << "Hello, " << firstName << " welcome to the Lottery!" << endl;
@@ -76,6 +117,7 @@ int main() {
                 cout << "Returning to main menu..." << endl;
                 break;
 
+        /* ========== CREDITS ========== */
             case 4:
                 // Credits logic here
                 cout << "CREDITS\n";
@@ -86,20 +128,23 @@ int main() {
                 cout << "Returning to main menu..." << endl;
                 break;
 
+        /* ========== EXIT LOGIC ========== */
             case 5:
                 // Exit logic here
                 cout << "Thank you for playing, " << firstName << "! See you next time.\n";
                 break;
 
+        /* ========== INVALID INPUT HANDLING ========== */
             default: 
                 // When input is invalid
                 cout << "Invalid choice. Please select a valid option from the menu.\n";
                 break;
 
-
-        } cout << endl; // Extra line between loops for readability
+        } 
+        cout << endl; // Extra line between loops for readability
 
     } while (gameChoice != 5); // End game choice loop
+/* ========== MENU LOOP ENDS HERE ========== */
 
 return 0;
 
