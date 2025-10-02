@@ -5,62 +5,57 @@
 
 using namespace std; 
 
+/*
+// PROGRAM OUTLINE
+PART A: INTRODUCTION
+        TITLE
+        GROUP MEMBERS
+        GET NAME FROM USER
+        GAME CHOICE SCREEN LOOP 
+PART B: GAME 1: Guessing Game 
+Part C: GAME 2: Roll the dice
+Part D: GAME 3: Lottery 
+*/
+
 int main()
 
 {
+    // Title and group info
+    cout << " MINI ARCADE \n";
+    cout << "Written by Mariam Mueen\n";
+    cout << "and Fayzabanu Diwan\n";
+    cout << "Group 9\n\n";
 
-// print title of game, then, new line
- cout <<"LOTO MAX Random Number Game" ".\n";
+    // Step 1: Get player details
+    string firstName, lastName;
+    cout << "Please enter your first name: ";
+    cin >> firstName;
+    cout << "Please enter your last name: ";
+    cin >> lastName;
 
- // print group members and group number to console 
- cout << "Written by Mariam Mueen" ".\n" 
-"and Fayzabanu Diwan" ".\n"
+    cout << "\nHello " << firstName << " " << lastName << "!\n";
 
-"Group 9" ".\n";
- // get name from user
- // REFERENCE: Murach C++ Slides, Week 2 Part 2, C2 Slide 24
+    // Ask if they want to play
+    char playChoice;
+    cout << "Would you like to play a game? (Y/N): ";
+    cin >> playChoice;
+    playChoice = toupper(playChoice);
 
-string PlayerName;
- cout << "Please enter your name: ";
- getline (cin, PlayerName);
- cout << "Hello " << PlayerName << ".\n";
+    if (playChoice == 'Y') {
+        // Show main menu
+        cout << "\n Choose your game\n";
+        cout << "1 -  Guessing Game\n";
+        cout << "2 -  Roll the Dice\n";
+        cout << "3 -  Lottery\n";
+        cout << "4 -  Exit\n";
+        cout << "\nEnter your choice (1-4): ";
+        //  We'll add logic for choices in the next step
+    }
+    else {
+        cout << "\nThank you, " << firstName << "! See you next time \n";
+    }
 
- // declare variable for number guess
-string NumberGuess;
-
- // get number guess from user
- cout << "Please enter your LOTO numbers (You should input seven two-digit numbers), " << 
-PlayerName << ".\n";
- cin >> NumberGuess; 
-
- // print guess 
- cout << "You guessed: " << NumberGuess << ".\n";
-
- // generate 7 random numbers between 1 and 49
- // Reference: https://cplusplus.com/reference/cstdlib/rand/
- // Chose to find more efficient way of generating random numbers lol 
-int GeneratedNumber1 = rand() % 50; 
-int GeneratedNumber2 = rand() % 50; 
-int GeneratedNumber3 = rand() % 50; 
-int GeneratedNumber4 = rand() % 50; 
-int GeneratedNumber5 = rand() % 50; 
-int GeneratedNumber6 = rand() % 50; 
-int GeneratedNumber7 = rand() % 50; 
-
- // print them
- cout << "The lucky LOTO numbers are: "
-<< GeneratedNumber1 << " "
-<< GeneratedNumber2 << " "
-<< GeneratedNumber3 << " "
-<< GeneratedNumber4 << " "
-<< GeneratedNumber5 << " "
-<< GeneratedNumber6 << " "
-<< GeneratedNumber7 << "\n";
-
- // thank player, and end game 
- cout << "Thank you for playing, " << PlayerName << "." ".\n"
-" Play again soon!";
-
-return 0;
-
+    return 0;
 }
+
+
