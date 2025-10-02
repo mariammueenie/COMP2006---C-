@@ -78,6 +78,13 @@ int main() {
                     cout << "Enter your guess (1-100): ";
                     int userGuess;
                     cin >> userGuess;
+                    
+                    if (!cin) {
+                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        cin.clear(); // Clear the error flag
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+                        continue; // Skip to the next iteration of the loop
+                    }
 
                     if (userGuess < 1 || userGuess > 100) {
                         cout << "Invalid input. Please enter a number between 1 and 100." << endl;
@@ -126,7 +133,7 @@ int main() {
 
                     // roll dice when user presses enter
                     int userDie1 = (rand()% 6) + 1; // Random number between 1 and 6
-                    int UserDie2 = (rand()% 6) + 1; // Random number between 1 and 6
+                    int userDie2 = (rand()% 6) + 1; // Random number between 1 and 6
 
                     // roll dice for computer
                     int compDie1 = (rand()% 6) + 1; // Random number between 1 and 6
