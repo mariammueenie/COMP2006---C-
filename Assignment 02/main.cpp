@@ -102,7 +102,7 @@ int main() {
                         cout << "Too high! Try again." << endl;
                     }
 
-                    else (userGuess == randomNumber) {
+                    else (userGuess == randomNumber); {
                         cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
                         break; // Exit the loop if the user guesses correctly
                     }
@@ -114,7 +114,7 @@ int main() {
             } // End of case 1
 
         /* ========== GAME 2: ROLL THE DICE ========== */
-            case 2:
+            case 2: {
 
                 // Game 2: Roll the Dice - Loop begins here
 
@@ -140,14 +140,14 @@ int main() {
                     int compDie2 = (rand()% 6) + 1; // Random number between 1 and 6
 
                     // Print the results
-                    cout << "\nYou rolled: " << userDie1 << " and " << UserDie2 << endl;
+                    cout << "\nYou rolled: " << userDie1 << " and " << userDie2 << endl;
                     cout << "The computer rolled: " << compDie1 << " and " << compDie2 << endl; 
 
                     // Determine the winner
-                    if (userDie1 == UserDie2 && compDie1 == compDie2) {
+                    if (userDie1 == userDie2 && compDie1 == compDie2) {
                         cout << "It's a tie! Both you and the computer rolled doubles!" << endl;
                     } 
-                    else if (userDie1 == UserDie2) {
+                    else if (userDie1 == userDie2) {
                         cout << "Congratulations " << firstName << "! You win with doubles!" << endl;
                     } 
                     else if (compDie1 == compDie2) {
@@ -159,6 +159,7 @@ int main() {
                 } while (tolower(playAgain) == 'y');
                 cout << "Returning to main menu..." << endl;
                 break;
+            } // End of case 2
 
         /* ========== GAME 3: LOTTERY ========== */
             case 3:
