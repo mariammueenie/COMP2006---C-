@@ -3,6 +3,8 @@
 #include <cmath>
 #include <ctime>
 #include <limits>
+#include <iomanip>
+#include <cctype>
 using namespace std; 
 
 /*
@@ -55,12 +57,54 @@ int main() {
         // Game choice logic. 
         switch(gameChoice) {
         /* ========== GAME 1: GUESSING GAME ========== */
-            case 1:
+            case 1: {
                 // Guessing game logic here
                 cout << "Hello, " << firstName << " welcome to the Guessing Game!" << endl;
-                cout << "Game 1 will run here."<< endl;
+                
+                // Explain game to user.
+                cout << "In this game, you will try to guess a number between 1 and 100." << endl;
+                cout << "You will have 3 attempts to guess the correct number." << endl;
+
+                // Limit the number of attempts to 3
+                int limit = 3; 
+                int count = 0;
+
+                do {
+                    // std::cout << "Count." << count << std::endl;
+                    // Generate random number between 1 and 100
+                    int randomNumber = (rand() % 100) + 1; // Random number between 1 and 100
+
+                    // Get user's guess with validation loop
+                    cout << "Enter your guess (1-100): ";
+                    int userGuess;
+                    cin >> userGuess;
+
+                    if (userGuess < 1 || userGuess > 100) {
+                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        continue; // Skip to the next iteration of the loop
+
+                    }
+
+                    count++; // Increment attempt count
+
+                    if (userGuess < randomNumber) {
+                        cout << "Too low! Try again." << endl;
+                    }
+
+                    else if (userGuess > randomNumber) {
+                        cout << "Too high! Try again." << endl;
+                    }
+
+                    else (userGuess == randomNumber) {
+                        cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
+                        break; // Exit the loop if the user guesses correctly
+                    }
+                
+                } while (count < limit);
+
                 cout << "Returning to main menu..." << endl;
                 break;
+            } // End of case 1
 
         /* ========== GAME 2: ROLL THE DICE ========== */
             case 2:
@@ -113,7 +157,7 @@ int main() {
             case 3:
                 // Lottery logic here
                 cout << "Hello, " << firstName << " welcome to the Lottery!" << endl;
-                cout << "Game 3 will run here."<< endl;
+
                 cout << "Returning to main menu..." << endl;
                 break;
 
