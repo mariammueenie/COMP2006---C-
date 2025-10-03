@@ -11,11 +11,13 @@ using namespace std;
 PROGRAM OUTLINE
 
 ARCADE LOOP: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
-GAME 1 - Guessing Game (Mariam)
-GAME 2 - Roll the dice (Fayzabanu)
-GAME 3 - Lottery (Mariam)
-*/
+ GAME 1 - Guessing Game 
+ GAME 2 - Roll the dice 
+ GAME 3 - Lottery 
+ CREDITS - Writers of Program
+EXIT - Exit the program
 
+*/
 
 /* ========== ARCADE LOOP ==========*/
 int main() {
