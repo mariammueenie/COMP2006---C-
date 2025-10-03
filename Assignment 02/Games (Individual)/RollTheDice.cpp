@@ -1,77 +1,84 @@
 #include <iostream>
-#include <string>
-#include <cmath>
-#include <ctime>
 #include <limits>
-#include <iomanip>
-#include <cctype>
-using namespace std; 
+#include <ctime>    // time()
+#include <cctype>   // tolower()
+#include <cstdlib>  // rand(), srand()
 
-/*
-// PROGRAM OUTLINE
-PART A: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
-PART B: GAME 1: Guessing Game (Mariam)
-Part C: GAME 2: Roll the dice (Fayzabanu)
-Part D: GAME 3: Lottery (Mariam)
-*/
+using namespace std;
 
 int main() {
+    // seed the random number generator
+    srand(static_cast<unsigned int>(time(0)));
 
-string firstName, lastName;
-int gameChoice;
-
-// Ask for players first and last name
-    cout << "Welcome to The Mini Arcade!!\n" << endl;
-    cout << "Please enter your first name:\n ";
+    // ask for a name so the greeting works
+    string firstName;
+    cout << "Welcome to Roll the Dice!\n";
+    cout << "Enter your first name: ";
     cin >> firstName;
-    cout << "Please enter your last name:\n ";
-    cin >> lastName;
+    cout << "\n";
 
-    // Greet the player
-    cout << "Hello," << firstName << " " << lastName << "! Lets play a game.\n" << endl;
+    // game loop
+    char playAgain;
+    //
+    do {
+        // explain the game
+        cout << "Hello, " << firstName << "Lets play Roll the Dice!\n";
+        cout << "Enter two numbers (1-6). If BOTH match the computer's roll (in order), you win!\n\n";
 
-char playAgain;
-                do {
-                // Roll the dice logic here
-                cout << "Hello, " << firstName << " welcome to Roll the Dice!" << endl;
-                
-                    // Fayzabanu's code will go here
-                    // --------- GAME 2: Roll the Dice with full validation ---------
+        // get two numbers from user
+        int firstRoll, secondRoll;
 
-                    cout << "Hello, " << firstName << " welcome to Roll the Dice!" << endl;
-                    cout << "In this game, you will roll two dice and try to get 2 matching numbers!" << endl;
-                    cout << "If you get doubles, you win!" << endl;
-                    cout << "Press Enter to roll the dice...";
+        // validation
+        while (true) {
+            cout << "Enter your first number (1-6): ";
+            if (!(cin >> firstRoll)) {
+                cout << "Not a number. Try again.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+            if (firstRoll < 1 || firstRoll > 6) {
+                cout << "Out of range. Try again.\n";
+                continue;
+            }
+            break;
+        }
 
-                    // roll dice when user presses enter
-                    int userDie1 = (rand()% 6) + 1; // Random number between 1 and 6
-                    int userDie2 = (rand()% 6) + 1; // Random number between 1 and 6
+        // validation
+        while (true) {
+            cout << "Enter your second number (1-6): ";
+            if (!(cin >> secondRoll)) {
+                cout << "Not a number. Try again.\n";
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                continue;
+            }
+            if (secondRoll < 1 || secondRoll > 6) {
+                cout << "Out of range. Try again.\n";
+                continue;
+            }
+            break;
+        }
 
-                    // roll dice for computer
-                    int compDie1 = (rand()% 6) + 1; // Random number between 1 and 6
-                    int compDie2 = (rand()% 6) + 1; // Random number between 1 and 6
+        // computer rolls
+        int comp1 = (rand() % 6) + 1;
+        int comp2 = (rand() % 6) + 1;
 
-                    // Print the results
-                    cout << "\nYou rolled: " << userDie1 << " and " << userDie2 << endl;
-                    cout << "The computer rolled: " << compDie1 << " and " << compDie2 << endl; 
+        // print results
+        cout << "You chose: " << firstRoll << " " << secondRoll << "\n\n";
+        cout << "Computer rolled: " << comp1 << " " << comp2 << "\n\n";
 
-                    // Determine the winner
-                    if (userDie1 == userDie2 && compDie1 == compDie2) {
-                        cout << "It's a tie! Both you and the computer rolled doubles!" << endl;
-                    } 
-                    else if (userDie1 == userDie2) {
-                        cout << "Congratulations " << firstName << "! You win with doubles!" << endl;
-                    } 
-                    else if (compDie1 == compDie2) {
-                        cout << "The computer wins with doubles! Better luck next time, " << firstName << "!" << endl;
-                    } 
-                    else {
-                        cout << "No doubles rolled. It's a draw!" << endl;
-                    }
-                    // Ask if the user wants to play again
-                    cout << "Do you want to play again? (y/n): ";
-                    cin >> playAgain;
-                } while (tolower(playAgain) == 'y');
+        // determine if user won
+        if (firstRoll == comp1 && secondRoll == comp2) {
+            cout << "Both numbers match — YOU WIN!\n\n";
+        } else {
+            cout << "At least one number didn't match — you lose.\n\n";
+        }
 
-                cout << "Returning to main menu..." << endl;
-            } // End of case 2
+        // ask to play again
+        cout << "Play again? (y/n): ";
+        cin >> playAgain;
+        cout << "\n";
+
+    } while (tolower(playAgain) == 'y'); // end of game loop
+}
