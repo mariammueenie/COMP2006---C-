@@ -1,11 +1,21 @@
 #include <iostream>
 #include <string>
-#include <cmath>
+//#include <cmath>
 #include <ctime>
 #include <limits>
-#include <iomanip>
+//#include <iomanip>
 #include <cctype>
+#include <cstdio> // for printf
+// stops windows.h from defining min and max macros
+//#define NOMINMAX
+//#include <windows.h> // For Sleep function
+#include <thread> // For this_thread::sleep_for
+#include <chrono> // For chrono::milliseconds
+#include <conio.h> // For _kbhit() and _getch()
+#include <cstdlib> // For rand and srand
+
 using namespace std; 
+using namespace std::chrono_literals; // for using 45ms
 
 /*
 // PROGRAM OUTLINE
@@ -15,14 +25,44 @@ Part C: GAME 2: Roll the dice (Fayzabanu)
 Part D: GAME 3: Lottery (Mariam)
 */
 
-int main() {
+// Simulated typing effect using standard C++ sleep
+void Type(const char* p) {
+    if (!p) return;
+    bool skip = false;
+
+    while (*p) {
+        // Check if a key has been pressed to skip the animation
+        if (_kbhit()) {
+            int ch = _getch(); // Get the pressed key
+            if (ch == 13) { // ASCII code for Enter key
+                skip = true;
+            }
+        }
+        if (skip) {
+            // If skipping, print the rest of the string immediately
+            printf("%s", p);
+            break;
+        }
+
+        // print the next character followed by a block, then erase the block
+        printf("%c\xDB", *p++);
+        std::this_thread::sleep_for(60ms);
+        printf("\b \b");
+        std::this_thread::sleep_for(30ms);
+    }
+    std::this_thread::sleep_for(300ms);
+}
+
+int main( int argc, const char * argv[]) {
 
 string firstName, lastName;
 int gameChoice;
 
 // Ask for players first and last name
-    cout << "Welcome to The Mini Arcade!!\n" << endl;
-    cout << "Please enter your first name:\n ";
+    //cout << "Welcome to The Mini Arcade!!\n" << endl;
+    Type("Welcome to The Mini Arcade!!\n");
+    //cout << "Please enter your first name:\n ";
+    Type("Please enter your first name:\n ");
     cin >> firstName;
     cout << "Please enter your last name:\n ";
     cin >> lastName;
@@ -99,3 +139,31 @@ int gameChoice;
             
             } // End of case 1
         
+
+
+/* ========== REFERENCES ========== */
+
+    /* ===== 1. Simulated Typing Effect ===== */ 
+            // https://www.youtube.com/watch?v=7aPJIp2J1J0
+            // https://cplusplus.com/forum/beginner/56011/
+            // https://stackoverflow.com/questions/16884607/character-by-character-output-to-simulate-a-typing-effect
+    /* ===== 2. Enter to Skip Animation ========== */
+            // https://learn.microsoft.com/en-us/cpp/c-runtime-library/console-and-port-i-o?view=msvc-170
+            // https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/getch-getwch?view=msvc-170
+            // https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/kbhit?view=msvc-170] 
+
+/* ========== Extra Code Snippets from Earlier Iterations ========== */
+
+    /* ===== 1. Original Type function using Windows Sleep function ===== */ 
+        // void Type (const char * p)
+        // {
+        //     if (NULL == p) return;
+        //     while (*p)
+        //     {
+        //         printf("%c\xDB", *p++);
+        //         ::Sleep(45);
+        //         printf("\b \b");
+        //         ::Sleep(45);
+        //     }
+        //     ::Sleep(300);
+        // }
