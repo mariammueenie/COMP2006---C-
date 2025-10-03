@@ -8,13 +8,16 @@
 using namespace std; 
 
 /*
-// PROGRAM OUTLINE
-PART A: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
-PART B: GAME 1: Guessing Game (Mariam)
-Part C: GAME 2: Roll the dice (Fayzabanu)
-Part D: GAME 3: Lottery (Mariam)
+PROGRAM OUTLINE
+
+ARCADE LOOP: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
+GAME 1 - Guessing Game (Mariam)
+GAME 2 - Roll the dice (Fayzabanu)
+GAME 3 - Lottery (Mariam)
 */
 
+
+/* ========== ARCADE LOOP ==========*/
 int main() {
     // Declare variables 
     string firstName, lastName;
@@ -22,14 +25,15 @@ int main() {
     srand(static_cast<unsigned int>(time(0))); // Seed random number generator
 
     // Ask for players first and last name
-    cout << "Welcome to The Mini Arcade!!\n\n" << endl;
-    cout << "Please enter your first name:\n\n ";
+    cout << "Welcome to The Mini Arcade!!" << "\n\n" ;
+    cout << "Please enter your first name: " << "\n\n ";
     cin >> firstName;
-    cout << "Please enter your last name:\n\n ";
+    cout << "Please enter your last name:" << "\n\n ";
     cin >> lastName;
 
     // Greet the player
-    cout << "Hello," << firstName << " " << lastName << "! Lets play a game.\n\n" << endl;
+    cout << "Hello, " << firstName << " " << lastName << "! Lets play a game.\n\n" << endl;
+
 
 /* ========== MENU LOOP STARTS HERE ========== */
     do {
@@ -56,10 +60,11 @@ int main() {
 
         // Game choice logic. 
         switch(gameChoice) {
-        /* ========== GAME 1: GUESSING GAME ========== */
+
+/* ========== GAME 1 - GUESSING GAME ========== */
             case 1: {
                 // Guessing game logic here
-                cout << "Hello, " << firstName << " welcome to the Guessing Game!" << endl;
+                cout << "Hello, " << firstName << " Welcome to the Guessing Game!" << "\n" << endl;
                 
                 // Explain game to user.
                 cout << "In this game, you will try to guess a number between 1 and 100." << endl;
@@ -97,7 +102,6 @@ int main() {
 
                     count++; // Increment attempt count
                     cout << "Attempt " << count << " of " << limit << "." << endl;
-                    cout << "Try again." << endl;
 
                     if (userGuess < randomNumber) {
                         cout << "Too low!" << endl;
@@ -123,15 +127,16 @@ int main() {
             } while  (tolower(playAgain) == 'y');
 
                 cout << "Returning to main menu..." << endl;
-            
-            } // End of case 1
+                break;
+            }
+// End of GAME 1
 
-        /* ========== GAME 2: ROLL THE DICE ========== */
+/* ========== GAME 2 - ROLL THE DICE ========== */
             case 2: {
                 char playAgain;
                 do {
                     // explain the game
-                    cout << "Hello, " << firstName << "Lets play Roll the Dice!\n";
+                    cout << "Hello, " << firstName << ". 1Lets play Roll the Dice!\n";
                     cout << "Enter two numbers (1-6). If BOTH match the computer's roll (in order), you win!\n\n";
 
                     // get two numbers from user
@@ -179,9 +184,9 @@ int main() {
 
                     // determine if user won
                     if (firstRoll == comp1 && secondRoll == comp2) {
-                        cout << "Both numbers match — YOU WIN!\n\n";
+                        cout << "Both numbers match, YOU WIN!\n\n";
                     } else {
-                        cout << "At least one number didn't match — you lose.\n\n";
+                        cout << "At least one number didn't match, you lose.\n\n";
                     }
 
                     // ask to play again
@@ -192,9 +197,10 @@ int main() {
                 } while (tolower(playAgain) == 'y'); // end of game loop
                 cout << "Returning to main menu..." << endl;
                 break;
-            } // End of case 2
+            } 
+// End of GAME 2
 
-        /* ========== GAME 3: LOTTERY ========== */
+/* ========== GAME 3 - LOTTERY ========== */
             case 3: {
             // Lottery logic here
             cout << "Hello, " << firstName << " welcome to the Lottery!" << endl;
@@ -205,13 +211,8 @@ int main() {
             // game loop beings
             char playAgain = 'y';
             do {
-            
-                // print group members and group number to console 
-                cout << "Written by Mariam Mueen" ".\n" 
-                        "and Fayzabanu Diwan" ".\n"
-                        "Group 9" ".\n";
                 // get number guess from user
-                cout << "Please enter your LOTO numbers (You should input seven numbers) from 1-49, " << firstName << ".\n\n"; 
+                cout << "Please enter your LOTTO numbers (You should input seven numbers) from 1-49, " << firstName << ".\n\n"; 
 
                 // declare variables
                 int NumberGuess1, NumberGuess2, NumberGuess3, NumberGuess4, NumberGuess5, NumberGuess6, NumberGuess7;
@@ -355,7 +356,7 @@ int main() {
                     if (allEqual) {
                         cout << "Congratulations " << firstName << "! Your numbers matched! You win the jackpot!\n\n";
                     } else {
-                        cout << "Sorry " << firstName << ", not all the numbers matched. Better luck next time!\n\n";
+                        cout << "Sorry, not all the numbers matched. Better luck next time!\n\n";
                     }
 
                     // thank player, and end game 
@@ -367,9 +368,10 @@ int main() {
                 while (tolower(playAgain) == 'y');
                 cout << "Returning to main menu..." << endl;
             break;
-            } // End of case 3 
+            } 
+// End of case 3 
 
-        /* ========== CREDITS ========== */
+/* ========== CREDITS ========== */
             case 4:
                 // Credits logic here
                 cout << "CREDITS\n\n";
@@ -380,24 +382,24 @@ int main() {
                 cout << "Returning to main menu..." << endl;
                 break;
 
-        /* ========== EXIT LOGIC ========== */
+/* ========== EXIT LOGIC ========== */
             case 5:
                 // Exit logic here
                 cout << "Thank you for playing, " << firstName << "! See you next time.\n\n";
                 break;
 
-        /* ========== INVALID INPUT HANDLING ========== */
+/* ========== INVALID INPUT HANDLING ========== */
             default: 
                 // When input is invalid
                 cout << "Invalid choice. Please select a valid option from the menu.\n\n";
                 break;
-
         } 
         cout << endl; // Extra line between loops for readability
 
     } while (gameChoice != 5); // End game choice loop
+
 /* ========== MENU LOOP ENDS HERE ========== */
 
 return 0;
 
-
+}
