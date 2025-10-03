@@ -1,22 +1,18 @@
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <ctime>
 #include <limits>
-#include <iomanip>
 #include <cctype>
 using namespace std; 
 
 /*
 PROGRAM OUTLINE
-
-ARCADE LOOP: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
+ ARCADE LOOP: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
  GAME 1 - Guessing Game 
  GAME 2 - Roll the dice 
  GAME 3 - Lottery 
  CREDITS - Writers of Program
-EXIT - Exit the program
-
+ EXIT - Exit the program
 */
 
 /* ========== ARCADE LOOP ==========*/
@@ -34,7 +30,7 @@ int main() {
     cin >> lastName;
 
     // Greet the player
-    cout << "Hello, " << firstName << " " << lastName << "! Lets play a game.\n\n" << endl;
+    cout << "Hello, " << firstName << " " << lastName << "! Lets play a game.\n\n";
 
 
 /* ========== MENU LOOP STARTS HERE ========== */
@@ -54,7 +50,7 @@ int main() {
 
         cin >> gameChoice;
             if (!cin) {
-                cout << "Invalid input. Please enter a number between 1 and 5." << endl;
+                cout << "Invalid input. Please enter a number between 1 and 5.\n\n";
                 cin.clear(); // Clear the error flag
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
                 gameChoice = 0; // Reset gameChoice to an invalid value
@@ -66,11 +62,11 @@ int main() {
 /* ========== GAME 1 - GUESSING GAME ========== */
             case 1: {
                 // Guessing game logic here
-                cout << "Hello, " << firstName << " Welcome to the Guessing Game!" << "\n" << endl;
+                cout << "Hello, " << firstName << " Welcome to the Guessing Game!" << "\n\n";
                 
                 // Explain game to user.
-                cout << "In this game, you will try to guess a number between 1 and 100." << endl;
-                cout << "You will have 3 attempts to guess the correct number." << endl;
+                cout << "In this game, you will try to guess a number between 1 and 100.\n\n";
+                cout << "You will have 3 attempts to guess the correct number.\n\n";
 
                 char playAgain;
 
@@ -90,45 +86,45 @@ int main() {
                     cin >> userGuess;
                     
                     if (!cin) {
-                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        cout << "Invalid input. Please enter a number between 1 and 100.\n\n";
                         cin.clear(); // Clear the error flag
                         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
                         continue; // Skip to the next iteration of the loop
                     }
 
                     if (userGuess < 1 || userGuess > 100) {
-                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        cout << "Invalid input. Please enter a number between 1 and 100.\n\n" << endl;
                         continue; // Skip to the next iteration of the loop
 
                     }
 
                     count++; // Increment attempt count
-                    cout << "Attempt " << count << " of " << limit << "." << endl;
+                    cout << "Attempt " << count << " of " << limit << ".\n\n" << endl;
 
                     if (userGuess < randomNumber) {
-                        cout << "Too low!" << endl;
+                        cout << "Too low!\n\n" << endl;
                     }
 
                     else if (userGuess > randomNumber) {
-                        cout << "Too high!" << endl;
+                        cout << "Too high!\n\n" << endl;
                     }
 
                     else if (userGuess == randomNumber) {
-                        cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
+                        cout << "Congratulations " << firstName << "! You guessed the correct number!\n\n" << endl;
                         break; // Exit the loop if the user guesses correctly
                     }
                     if (count == limit) {
-                        cout << "Sorry, you've used all your attempts. The correct number was " << randomNumber << "." << endl;
+                        cout << "Sorry, you've used all your attempts. The correct number was " << randomNumber << ".\n\n" << endl;
                     }
                 } while (count < limit);
                 
                 // Ask if the user wants to play again
-                    cout << "Do you want to play again? (y/n): ";
+                    cout << "Do you want to play again? (y/n): \n\n";
                     cin >> playAgain;
 
             } while  (tolower(playAgain) == 'y');
 
-                cout << "Returning to main menu..." << endl;
+                cout << "Returning to main menu...\n\n" << endl;
                 break;
             }
 // End of GAME 1
@@ -146,15 +142,15 @@ int main() {
 
                     // validation
                     while (true) {
-                        cout << "Enter your first number (1-6): ";
+                        cout << "Enter your first number (1-6): \n\n";
                         if (!(cin >> firstRoll)) {
-                            cout << "Not a number. Try again.\n";
+                            cout << "Not a number. Try again.\n\n";
                             cin.clear();
                             cin.ignore(numeric_limits<streamsize>::max(), '\n');
                             continue;
                         }
                         if (firstRoll < 1 || firstRoll > 6) {
-                            cout << "Out of range. Try again.\n";
+                            cout << "Out of range. Try again.\n\n";
                             continue;
                         }
                         break;
@@ -162,15 +158,15 @@ int main() {
 
                     // validation
                     while (true) {
-                        cout << "Enter your second number (1-6): ";
+                        cout << "Enter your second number (1-6): \n\n";
                         if (!(cin >> secondRoll)) {
-                            cout << "Not a number. Try again.\n";
+                            cout << "Not a number. Try again.\n\n";
                             cin.clear();
-                            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                            cin.ignore(numeric_limits<streamsize>::max(), '\n\n');
                             continue;
                         }
                         if (secondRoll < 1 || secondRoll > 6) {
-                            cout << "Out of range. Try again.\n";
+                            cout << "Out of range. Try again.\n\n";
                             continue;
                         }
                         break;
@@ -192,7 +188,7 @@ int main() {
                     }
 
                     // ask to play again
-                    cout << "Play again? (y/n): ";
+                    cout << "Play again? (y/n): \n\n";
                     cin >> playAgain;
                     cout << "\n";
 
@@ -205,7 +201,7 @@ int main() {
 /* ========== GAME 3 - LOTTERY ========== */
             case 3: {
             // Lottery logic here
-            cout << "Hello, " << firstName << " welcome to the Lottery!" << endl;
+            cout << "Hello, " << firstName << " welcome to the Lottery!\n\n";
 
             // print title of game, then, new line
             cout <<"LOTO MAX Random Number Game" ".\n\n";
@@ -221,7 +217,7 @@ int main() {
 
                 // Pick #1
                 while (true) {
-                    cout << "Pick #1 (1-49): ";
+                    cout << "Pick #1 (1-49): \n\n";
                     if (!(cin >> NumberGuess1)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess1 < 1 || NumberGuess1 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     break;
@@ -229,7 +225,7 @@ int main() {
 
                 // Pick #2
                 while (true) {
-                    cout << "Pick #2 (1-49): ";
+                    cout << "Pick #2 (1-49): \n\n";
                     if (!(cin >> NumberGuess2)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess2 < 1 || NumberGuess2 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess2 == NumberGuess1) { cout << "Repeat number. Try again.\n\n"; continue; }
@@ -238,7 +234,7 @@ int main() {
 
                 // Pick #3
                 while (true) {
-                    cout << "Pick #3 (1-49): ";
+                    cout << "Pick #3 (1-49): \n\n";
                     if (!(cin >> NumberGuess3)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess3 < 1 || NumberGuess3 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess3 == NumberGuess1 || NumberGuess3 == NumberGuess2) { cout << "Repeat number. Try again.\n\n"; continue; }
@@ -247,7 +243,7 @@ int main() {
 
                 // Pick #4
                 while (true) {
-                    cout << "Pick #4 (1-49): ";
+                    cout << "Pick #4 (1-49): \n\n";
                     if (!(cin >> NumberGuess4)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess4 < 1 || NumberGuess4 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess4 == NumberGuess1 || NumberGuess4 == NumberGuess2 || NumberGuess4 == NumberGuess3) { cout << "Repeat number. Try again.\n\n"; continue; }
@@ -256,7 +252,7 @@ int main() {
 
                 // Pick #5
                 while (true) {
-                    cout << "Pick #5 (1-49): ";
+                    cout << "Pick #5 (1-49): \n\n";
                     if (!(cin >> NumberGuess5)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess5 < 1 || NumberGuess5 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess5 == NumberGuess1 || NumberGuess5 == NumberGuess2 || NumberGuess5 == NumberGuess3 || NumberGuess5 == NumberGuess4) { cout << "Repeat number. Try again.\n\n"; continue; }
@@ -265,17 +261,17 @@ int main() {
 
                 // Pick #6
                 while (true) {
-                    cout << "Pick #6 (1-49): ";
+                    cout << "Pick #6 (1-49): \n\n";
                     if (!(cin >> NumberGuess6)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess6 < 1 || NumberGuess6 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess6 == NumberGuess1 || NumberGuess6 == NumberGuess2 || NumberGuess6 == NumberGuess3 ||
-                        NumberGuess6 == NumberGuess4 || NumberGuess6 == NumberGuess5) { cout << "Repeat number. Try again.\n"; continue; }
+                        NumberGuess6 == NumberGuess4 || NumberGuess6 == NumberGuess5) { cout << "Repeat number. Try again.\n\n"; continue; }
                     break;
                 }
 
                 // get 7 numbers from user, and validate inputs
                 while (true) {
-                    cout << "Pick #7 (1-49): ";
+                    cout << "Pick #7 (1-49): \n\n";
                     if (!(cin >> NumberGuess7)) { cout << "Not a number. Try again.\n\n"; cin.clear(); cin.ignore(10000,'\n'); continue; }
                     if (NumberGuess7 < 1 || NumberGuess7 > 49) { cout << "Out of range. Try again.\n\n"; continue; }
                     if (NumberGuess7 == NumberGuess1 || NumberGuess7 == NumberGuess2 || NumberGuess7 == NumberGuess3 ||
@@ -284,7 +280,7 @@ int main() {
                 }
 
                 // print user input numbers to console
-                cout << "You guessed: "
+                cout << "You guessed: \n\n"
                 << NumberGuess1 << ' ' << NumberGuess2 << ' ' << NumberGuess3 << ' '
                 << NumberGuess4 << ' ' << NumberGuess5 << ' ' << NumberGuess6 << ' '
                 << NumberGuess7 << ".\n\n";
