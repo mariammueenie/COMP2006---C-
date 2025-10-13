@@ -101,6 +101,7 @@ int main() {
                     count++; // Increment attempt count
                     cout << "Attempt " << count << " of " << limit << ".\n\n" << endl;
 
+
                     if (userGuess < randomNumber) {
                         cout << "Too low!\n\n" << endl;
                     }
