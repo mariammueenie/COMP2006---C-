@@ -23,6 +23,13 @@ Part D: GAME 3: Lottery (Mariam)
 */
 
 // Simulated typing effect using standard C++ sleep
+// Yay! It works!! I built this using like 5 different references
+// and a lot of trial and error.
+// Also added the feature to skip the animation by pressing Enter
+// References at the bottom of the file
+// So much trial and error, but it was worth it
+// Note: This function only works in Windows because of the use of <conio.h>, <cstdio> and their functions _kbhit() and _getch()
+// If I want to make it work in other OS, I will have to find alternatives for these functions
 void Type(const char* p) {
     while (*p) {
         if (_kbhit()) { // Check if a key has been pressed
@@ -53,14 +60,15 @@ int gameChoice;
     cin >> firstName;
     Type("Great! Now, please enter your last name:\n");
     cin >> lastName;
+    // Greet the player (in one line)
+    Type(("Hello, " + firstName + " " + lastName + "! Let's play a game.\n").c_str());
 
     // Greet the player
-    Type("Hello, " );
-    Type(firstName.c_str());
-    Type(" " );
-    Type(lastName.c_str());
-    Type("! Let's play a game.\n");
-    //Type("Hello," (firstName) << " " << lastName << "! Lets play a game.\n" ) endl;
+    // Type("Hello, " );
+    // Type(firstName.c_str());
+    // Type(" " );
+    // Type(lastName.c_str());
+    // Type("! Let's play a game.\n");
 
 }
 
