@@ -37,6 +37,12 @@ int main() {
     cout << "Welcome to The Mini Arcade!!" << "\n\n" ;
     cout << "Please enter your first name: " << "\n\n ";
     cin >> firstName;
+        while (!cin) {
+            cout << "Invalid input. Please enter a valid first name." << "\n\n ";
+            cin.clear(); // Clear the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
+            cin >> firstName;
+        }
     cout << "\n"; // ADDED: fix spacing issues
     cout << "Please enter your last name:" << "\n\n ";
     cin >> lastName;
@@ -450,3 +456,12 @@ return 0;
 // iNCLUDE user name in lottery ticket file
 // Include version number and date? and such in credits 
 // FOLLOW INSTRUCTIONS TO A T. LETTER FOR LETTER
+
+// GamePlan
+// Step : ASK user if they want to play game at start
+// Step : FIX NAME VALIDATION (no numbers/special chars/MULTIPLE entries)
+// Step : CHOOSING VALIDATION (dont carry multiple entries from 1 value)
+// Step : Lottery: Make instructions less spaced out
+// Step : Turn each cin into a validation loop
+// Step : Save certain inputs to variables to avoid re-asking, and help with personalization 
+// Step : Ensure that specific game features are implemented as per instructions
