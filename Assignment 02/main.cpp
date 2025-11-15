@@ -19,6 +19,13 @@ PROGRAM OUTLINE
  EXIT - Exit the program
 */
 
+    /* To build and test on VS Developer Command Prompt
+    first:
+        cd C:\Users\maria\Documents\GitHub\COMP2006---C-\Assignment 02>build\main.cpp
+        cl /std:c++17 /EHsc main.cpp /Fe:build\app.exe
+        build\app.exe
+    */
+
 /* ========== ARCADE LOOP ==========*/
 int main() {
     // Declare variables 
@@ -427,3 +434,19 @@ int main() {
 return 0;
 
 }
+
+
+// Notes for improvement:
+// Intro: FIX NAME VALIDATION (no numbers/special chars/MULTIPLE entries)
+// CHOOSING VALIDATION (dont carry multiple entries from 1 value)
+// Intro: Ask user if they want to play game at start 
+// Lottery: Make instructions less spaced out
+// Lottery: Add ability to choose how many tickets to buy at once
+// Lottery: Add ability to choose custom number ranges and ticket prices
+// Lottery: Add ability to view past tickets from txt file within program
+// Lottery: Add ability to choose numbers vs auto-generate
+// Lottery: Add ability to save ticket with custom name
+// VALIDATE VALIDATE VALIDATE inputs everywhere
+// iNCLUDE user name in lottery ticket file
+// Include version number and date? and such in credits 
+// FOLLOW INSTRUCTIONS TO A T. LETTER FOR LETTER

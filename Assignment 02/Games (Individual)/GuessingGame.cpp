@@ -17,6 +17,16 @@
 using namespace std; 
 using namespace std::chrono_literals; // for using 45ms
 
+// Here is how to run game in VS Developer Command Prompt
+/*
+
+cd "C:\Users\maria\Documents\GitHub\COMP2006---C-\Assignment 02\Games (Individual)"
+if not exist build mkdir build
+cl /std:c++17 /EHsc GuessingGame.cpp /Fe:build\GuessingGame.exe
+build\GuessingGame.exe
+
+*/
+
 /*
 // PROGRAM OUTLINE
 PART A: INTRODUCTION, TITLE, GET NAME FROM USER, GAME CHOICE SCREEN LOOP (Fayzabanu)
@@ -64,20 +74,25 @@ int gameChoice;
     //cout << "Please enter your first name:\n ";
     Type("Please enter your first name:\n ");
     cin >> firstName;
-    cout << "Please enter your last name:\n ";
+    Type("Please enter your first name:\n");
+    //cout << "Please enter your last name:\n ";
     cin >> lastName;
 
     // Greet the player
-    cout << "Hello," << firstName << " " << lastName << "! Lets play a game.\n" << endl;
+    //cout << "Hello," << firstName << " " << lastName << "! Lets play a game.\n" << endl;
+   Type((("Hello, " + firstName.c_str() + " " + lastName.c_str() + "! Let's play a game.\n\n")));
+
 
 
 // Guessing game logic here
-                cout << "Hello, " << firstName << " welcome to the Guessing Game!" << endl;
+                //cout << "Hello, " << firstName << " welcome to the Guessing Game!" << endl;
+                Type("Hello, " + firstName.c_str() + " Welcome to the Guessing Game!\n");
                 
                 // Explain game to user.
-                cout << "In this game, you will try to guess a number between 1 and 100." << endl;
-                cout << "You will have 3 attempts to guess the correct number." << endl;
-
+                Type("In this game, you will try to guess a number between 1 and 100.\n");
+                //cout << "In this game, you will try to guess a number between 1 and 100." << endl;
+                //cout << "You will have 3 attempts to guess the correct number." << endl;
+                Type("You will have 3 attempts to guess the correct number.\n");
                 char playAgain;
 
                 do {
@@ -91,52 +106,63 @@ int gameChoice;
                     // Generate random number between 1 and 100
 
                     // Get user's guess with validation loop
-                    cout << "Enter your guess (1-100): ";
+                    //cout << "Enter your guess (1-100): ";
+                    Type("Enter your guess (1-100): ");
                     int userGuess;
                     cin >> userGuess;
                     
                     if (!cin) {
-                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        //cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        Type("Invalid input. Please enter a number between 1 and 100.\n\n");
                         cin.clear(); // Clear the error flag
                         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
                         continue; // Skip to the next iteration of the loop
                     }
 
                     if (userGuess < 1 || userGuess > 100) {
-                        cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        //cout << "Invalid input. Please enter a number between 1 and 100." << endl;
+                        Type("Invalid input. Please enter a number between 1 and 100.\n\n");
                         continue; // Skip to the next iteration of the loop
 
                     }
 
                     count++; // Increment attempt count
-                    cout << "Attempt " << count << " of " << limit << "." << endl;
-                    cout << "Try again." << endl;
+                    //cout << "Attempt " << count << " of " << limit << "." << endl;
+                    Type(("Attempt " + to_string(count) + " of " + to_string(limit) + ".\n\n").c_str());
+                    //cout << "Try again." << endl;
+                    Type("Try again.\n\n"); 
 
                     if (userGuess < randomNumber) {
-                        cout << "Too low!" << endl;
+                        Type("Too low!\n");
+                        //cout << "Too low!" << endl;
                     }
 
                     else if (userGuess > randomNumber) {
-                        cout << "Too high!" << endl;
+                        Type("Too high!\n");
+                        //cout << "Too high!" << endl;
                     }
 
                     else if (userGuess == randomNumber) {
-                        cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
+                        Type("Congratulations " + firstName.c_str() + "! You guessed the correct number!\n\n");
+                        //cout << "Congratulations " << firstName << "! You guessed the correct number!" << endl;
                         break; // Exit the loop if the user guesses correctly
                     }
                     if (count == limit) {
-                        cout << "Sorry, you've used all your attempts. The correct number was " << randomNumber << "." << endl;
+                        Type("Sorry, you've used all your attempts. The correct number was " + to_string(randomNumber) + ".\n\n");
+                        //cout << "Sorry, you've used all your attempts. The correct number was " << randomNumber << "." << endl;
                     }
                 } while (count < limit);
                 
                 // Ask if the user wants to play again
-                    cout << "Do you want to play again? (y/n): ";
+                    //cout << "Do you want to play again? (y/n): ";
+                    Type("Do you want to play again? (y/n): \n");
                     cin >> playAgain;
 
             } while  (tolower(playAgain) == 'y');
 
-                cout << "Returning to main menu..." << endl;
-            
+                //cout << "Returning to main menu..." << endl;
+                Type("Returning to main menu...\n\n");
+
             } // End of case 1
         
 
