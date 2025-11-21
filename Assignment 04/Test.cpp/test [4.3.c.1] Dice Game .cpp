@@ -45,3 +45,8 @@ void playDiceGame() {
         return;
     }
 }
+
+// WHY CHANGED 
+// The dice game did not prompt the user to enter numerical values between 1-6
+// Loop was not made well, lead to infinite loop 
+// Bad input handling 
