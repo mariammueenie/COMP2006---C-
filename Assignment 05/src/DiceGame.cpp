@@ -11,11 +11,19 @@
 #include <cctype>       // isalpha, isspace, tolower, isdigit
 #include <thread>       // for dice rolling effect (sleep)
 #include <chrono>       // for milliseconds (sleep)
-using namespace std;
+
+// Headers
+#include "../include/DiceGame.h"
+#include "../include/ArcadeGlobals.h"
+
+namespace arcade {
+
 
 /* =========================================================
    Dice Game
    ========================================================= */
+    // REDUNDANT
+    // TODO: Remove if confirmed unused
     // Forward declaration for your existing helper
     // Purpose is to 'tell' compiler, trust me bro the function I referenced
     //   is coming soon, just keep reading, don't throw an error plz
@@ -23,7 +31,7 @@ using namespace std;
     // Solved error :)
     // REFERENCE: https://www.geeksforgeeks.org/cpp/what-are-forward-declarations-in-c/
     // REFERENCE: https://favtutor.com/blogs/forward-declaration-cpp
-    string getYesNo(const string& prompt);
+    // string getYesNo(const string& prompt);
 
     // ======================================================
     // NEW FUNCTION ADDED: ASCII Dice Printer
@@ -254,3 +262,4 @@ using namespace std;
             }
         }
     }
+} // namespace arcade
