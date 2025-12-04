@@ -11,7 +11,12 @@
 #include <cctype>       // isalpha, isspace, tolower, isdigit
 #include <thread>       // for dice rolling effect (sleep)
 #include <chrono>       // for milliseconds (sleep)
-using namespace std;
+
+// Headers
+#include "../include/Credits.h"
+#include "../include/ArcadeGlobals.h"
+namespace arcade {
+
 
 /* =========================================================
    Credits
@@ -26,7 +31,10 @@ void showCredits() {
         cout << "               CREDITS\n";
         cout << "=====================================\n\n";
 
-        cout << "[ Mini Arcade - Version 4.7 ]\n\n";
+        cout << "[ Mini Arcade ]\n";
+        cout << "Version: 5.0 — Assignment 5 Update\n";
+        cout << "This program uses namespaces and headers (Murach Chapter 9).\n\n";
+
 
         cout << "Developed by: Group 9\n";
         cout << "Programmer: Mariam Mueen\n";
@@ -43,3 +51,4 @@ void showCredits() {
         }
     }
 }
+} // namespace arcade
