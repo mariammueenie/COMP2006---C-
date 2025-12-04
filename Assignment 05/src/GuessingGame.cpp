@@ -11,7 +11,13 @@
 #include <cctype>       // isalpha, isspace, tolower, isdigit
 #include <thread>       // for dice rolling effect (sleep)
 #include <chrono>       // for milliseconds (sleep)
-using namespace std;
+
+// Headers
+#include "../include/GuessingGame.h"
+#include "../include/ArcadeGlobals.h"
+
+namespace arcade {
+
 
 // =========================================================
 // Guessing Game
@@ -81,7 +87,10 @@ using namespace std;
                 else {
                     cout << "Too high.\n";
                 }
-
+                // Added: Hint if user is within of the secret number
+                if (abs(secretNumber - guess) <= 5) {
+                    cout << "🔥 You are VERY close!\n";
+                }
                 if (i < attempts) {
                     cout << "Try again!\n\n";
                 }
@@ -102,3 +111,4 @@ using namespace std;
             }
         }
     }
+} // namespace arcade
