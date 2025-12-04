@@ -13,15 +13,6 @@
 #include <chrono>       // for milliseconds (sleep)
 using namespace std;
 
-// Headers
-#include "include/ArcadeGlobals.h"
-#include "include/GuessingGame.h"
-#include "include/DiceGame.h"
-#include "include/LotteryGame.h"
-#include "include/NameGame.h"
-#include "include/Credits.h"
-#include "include/About.h"
-
 // FAIR WARNING: Commented the heck out of this code, mostly for my own understanding
 // You know u understand something if u can explain it, or something lol 
 
@@ -342,5 +333,3 @@ using namespace std;
             return value;
         }
     }
-
-
