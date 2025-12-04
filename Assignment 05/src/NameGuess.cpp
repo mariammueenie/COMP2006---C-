@@ -11,7 +11,17 @@
 #include <cctype>       // isalpha, isspace, tolower, isdigit
 #include <thread>       // for dice rolling effect (sleep)
 #include <chrono>       // for milliseconds (sleep)
-using namespace std;
+
+// Headers
+#include "../include/NameGame.h"
+#include "../include/ArcadeGlobals.h"
+
+//todo: replace raw cin>> with below
+// mode = getStrictInteger("Enter choice (1 or 2): ", 1, 2);
+
+
+namespace arcade {
+
 
 /* =========================================================
    Name Guessing Game
@@ -128,7 +138,7 @@ using namespace std;
                     continue;
                 }
 
-                // If user enters valud choice
+                // If user enters valid choice
                 if (mode == 1 || mode == 2)
                     break;
 
@@ -200,3 +210,4 @@ using namespace std;
             }
         }
     }
+} // namespace arcade
