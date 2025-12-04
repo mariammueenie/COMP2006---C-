@@ -32,13 +32,22 @@ void showCredits() {
         cout << "=====================================\n\n";
 
         cout << "[ Mini Arcade ]\n";
-        cout << "Version: 5.0 — Assignment 5 Update\n";
-        cout << "This program uses namespaces and headers (Murach Chapter 9).\n\n";
+        cout << " > Version: 5.0 - Assignment 5 Update\n";
+        cout << " > This program uses namespaces and headers (Murach Chapter 9).\n\n";
 
+        cout << "Developed for:\n";
+        cout << " > COMP 2006 - C++ Programming\n";
+        cout << " > Georgian College\n";
+        cout << " > Instructor: Professor Maziar Shajari\n\n";
 
         cout << "Developed by: Group 9\n";
-        cout << "Programmer: Mariam Mueen\n";
-        cout << "Programmer: Fayzabanu Diwan\n\n";
+        cout << " > Programmer: Mariam Mueen\n";
+        cout << " > Programmer: Fayzabanu Diwan\n\n";
+
+        cout << "Special Thanks / References:\n";
+        cout << " > Murach's C++ Programming, 2nd Edition\n";
+        cout << " > Instructor class notes on namespaces, validation, and functions\n";
+        cout << " > Standard C++ documentation for getline, stoi, vectors, and time.\n\n";
 
         cout << "Thank you for playing the Mini Arcade!\n\n";
 
