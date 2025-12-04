@@ -29,17 +29,46 @@ void showAbout() {
         cout << "               ABOUT GAME\n";
         cout << "=====================================\n\n";
 
-        cout << "INSERT INFO ABOUT GAME TMRW\n\n"
-        // TODO: Insert game information
+        // Greet player by name
+        cout << "Hello, " << player.first << " " << player.last << "!\n";
+
+        // Get time from device
         time_t now = time(nullptr);
-        cout << "Mini Arcade - Assignment 5 Edition\n";
-        cout << "Date/time: " << ctime(&now);
-        cout << "Features:\n";
-        cout << "- Namespaces and header files\n";
-        cout << "- Improved input validation\n";
-        cout << "- Updated Lottery rules (1–40, bonus, extra lines)\n";
-        cout << "- Rock Paper Scissors gamble option\n";
-        cout << "- Multiple games in one program\n";
+        cout << "It is currently: " << ctime(&now) << "\n";
+        
+        // TODO: Insert game information
+        cout << "Welcome to the Mini Arcade — Assignment 05 Edition!\n\n";
+
+        cout << "This program demonstrates:\n";
+        cout << " - Namespaces\n";
+        cout << " - Header Files\n";
+        cout << " - Structs (PlayerName)\n";
+        cout << " - Input Validation Functions\n";
+        cout << " - Vectors (Lottery Game)\n";
+        cout << " - File Output (Lottery Ticket System)\n";
+        cout << " - Multi-File Project Organization\n";
+        cout << " - Bonus Gameplay (Rock-Paper-Scissors)\n\n";
+
+        cout << "Games Included:\n";
+        cout << " 1. Guessing Game (Numbers 1-100, 7 tries)\n";
+        cout << " 2. Dice Game (Pick two values and match to win)\n";
+        cout << " 3. Lottery Game (1-40, Bonus Tickets, Extra Lines)\n";
+        cout << " 4. Guessing Name Game (Letter-matching mode)\n";
+        cout << "//TODO: Insert switch loop to get instructions for each game here"
+
+        cout << "\nAdditional Features:\n";
+        cout << " 5. Credits\n\n";
+        cout << " 6. About / Help Page (this page)\n\n";
+
+        cout << "Purpose of the Program:\n";
+        cout << " To practice modular design, functions, vectors,\n";
+        cout << " input validation, multi-file organization, and\n";
+        cout << " the use of namespaces in a C++ project.\n\n";
+
+        cout << "====================================\n";
+        cout << " End of About Page — Returning to Menu\n";
+        cout << "====================================\n\n";
+    
         
         again = getYesNo( "View the 'About' section again? (Y/N): ");
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
