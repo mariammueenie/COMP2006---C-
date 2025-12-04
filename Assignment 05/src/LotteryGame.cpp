@@ -11,8 +11,20 @@
 #include <cctype>       // isalpha, isspace, tolower, isdigit
 #include <thread>       // for dice rolling effect (sleep)
 #include <chrono>       // for milliseconds (sleep)
-using namespace std;
 
+// Headers
+#include "../include/LotteryGame.h"
+#include "../include/ArcadeGlobals.h"
+
+namespace arcade {
+//TODO: Implement the rock paper scissors gambling on winnings, include in file output.
+//TODO: Allow user to choose 6 numbers for initial ticket, or generate  numbers for initial ticket
+//TODO: Ask user if they would like 2 bonus tickets
+//TODO: Ensure all tickets are unique, no values repeated
+//TODO: Ensure that there are 6 winning numbers and 1 bonus number 
+//TODO: Apply lotario-style prize logic
+//TODO: Matches to the 6 normal winning numbers considered normally
+//TODO: Match to bonus winning number considered separately rather than reg match, win $333
 /* =========================================================
    Lottery Game — Vector Victory
    ========================================================= */
@@ -65,7 +77,8 @@ using namespace std;
         } 
     }
 
-    // Returns 6 unique numbers from 1-49
+    // FOR ASSIGN 5: 1-40 rather than 1--49
+    // Returns 6 unique numbers from 1-40
     // No repeats
     vector<int> generateUnique(int count, int minVal, int maxVal) {
         // num starts as empty
@@ -130,16 +143,16 @@ using namespace std;
         }
     }
 
-    // Used to get 6 unique ints from 1-49 from user
+    // Used to get 6 unique ints from 1-40 from user
     vector<int> getUserTicket() {
         vector<int> ticket;
 
-        cout << "Enter 6 UNIQUE numbers between 1 and 49.\n";
+        cout << "Enter 6 UNIQUE numbers between 1 and 40.\n";
 
         while ((int)ticket.size() < 6) { // loop until 6 ints entered
             int num = getSingleInteger( // request next int
                 "Number " + to_string(ticket.size() + 1) + ": ", 
-                1, 49
+                1, 40
             );
 
             // no duplicates allowed, prompts re-entry
@@ -264,7 +277,7 @@ using namespace std;
             cout << "Hello, " << player.first << ". Welcome to the Lotto!\n\n";
 
             // Explain the game to the user
-            cout << "In this game, you will select 6 unique numbers between 1 and 49.\n";
+            cout << "In this game, you will select 6 unique numbers between 1 and 40.\n";
             cout << "You will also have the option to let us generate 6 unique random numbers between 1 and 49 for you.\n";
             cout << "Finally, 6 [+ 1 Bonus] winning number will be drawn.\n";
             cout << "If your numbers match 3 or more winning numbers (regardless of order), you win a prize!\n";
@@ -285,16 +298,16 @@ using namespace std;
             // generated extra ticket if desired
             vector<int> extraTicket;
             if (extraChoice == "Y")
-                extraTicket = generateUnique(6, 1, 49);
+                extraTicket = generateUnique(6, 1, 40);
 
             // generate winning numbers
-            vector<int> winning = generateUnique(6, 1, 49);
+            vector<int> winning = generateUnique(6, 1, 40);
 
             // generate bonus number
-            int bonusNum = rand() % 49 + 1;
+            int bonusNum = rand() % 40 + 1;
             // if bonus number is already in winning line, generate new bonus
             while (find(winning.begin(), winning.end(), bonusNum) != winning.end())
-                bonusNum = rand() % 49 + 1;
+                bonusNum = rand() % 40 + 1;
             // sorts values from smallest -> largest
             // cleaner output
             sort(ticket.begin(), ticket.end());
@@ -404,3 +417,4 @@ using namespace std;
             }
         }
     }
+} // namespace arcade
