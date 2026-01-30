@@ -13,11 +13,11 @@
 #include <chrono>       // for milliseconds (sleep)
 
 // Headers
-#include "../include/DiceGame.h"
-#include "../include/ArcadeGlobals.h"
+#include "DiceGame.h"
+#include "ArcadeGlobals.h"
 
 namespace arcade {
-
+    using namespace std;
 
 /* =========================================================
    Dice Game

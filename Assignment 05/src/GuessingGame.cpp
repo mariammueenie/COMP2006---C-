@@ -13,11 +13,11 @@
 #include <chrono>       // for milliseconds (sleep)
 
 // Headers
-#include "../include/GuessingGame.h"
-#include "../include/ArcadeGlobals.h"
+#include "GuessingGame.h"
+#include "ArcadeGlobals.h"
 
 namespace arcade {
-
+    using namespace std;
 
 // =========================================================
 // Guessing Game
@@ -89,7 +89,7 @@ namespace arcade {
                 }
                 // Added: Hint if user is within of the secret number
                 if (abs(secretNumber - guess) <= 5) {
-                    cout << "🔥 You are VERY close!\n";
+                    cout << "You are VERY close!\n";
                 }
                 if (i < attempts) {
                     cout << "Try again!\n\n";

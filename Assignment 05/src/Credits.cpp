@@ -13,10 +13,10 @@
 #include <chrono>       // for milliseconds (sleep)
 
 // Headers
-#include "../include/Credits.h"
-#include "../include/ArcadeGlobals.h"
+#include "Credits.h"
+#include "ArcadeGlobals.h"
 namespace arcade {
-
+    using namespace std;
 
 /* =========================================================
    Credits

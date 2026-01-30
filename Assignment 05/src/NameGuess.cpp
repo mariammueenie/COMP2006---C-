@@ -13,15 +13,15 @@
 #include <chrono>       // for milliseconds (sleep)
 
 // Headers
-#include "../include/NameGame.h"
-#include "../include/ArcadeGlobals.h"
+#include "NameGame.h"
+#include "ArcadeGlobals.h"
 
 //todo: replace raw cin>> with below
 // mode = getStrictInteger("Enter choice (1 or 2): ", 1, 2);
 
 
 namespace arcade {
-
+    using namespace std;
 
 /* =========================================================
    Name Guessing Game
@@ -45,13 +45,15 @@ namespace arcade {
     // Retrieve name (answer)
     string getNameByIndex(int index) {
         switch (index) {
-            case 1: return "Ali";         // TODO: ADD LENGTH 4 
-            case 2: return "Diwan";       
-            case 3: return "Mariam";
-            case 4: return "Fayzan";
-            case 5: return "Jessica";
-            case 6: return "Benjamin";
-            case 7: return "Alexander";
+            case 1: return "Ali";     
+            case 2: return "Abel";    
+            case 3: return "Diwan";       
+            case 4: return "Mariam";
+            case 5: return "Fayzan";
+            case 6: return "Jessica";
+            case 7: return "Benjamin";
+            case 8: return "Alexander";
+            case 9: return "Montgomery";
         }
         return "Mariam";
     }
@@ -81,7 +83,7 @@ namespace arcade {
 
     // choose random name length
     string getRandomName() {
-        int i = rand() % 7 + 1;
+        int i = rand() % 10 + 1;
         return getNameByIndex(i);
     }
 
@@ -90,7 +92,7 @@ namespace arcade {
     string getRandomNameByLength(int lengthChoice) {
         int count = 0; // initialize 
 
-        for (int i = 1; i <= 7; i++) // when user asks for name from 1-7 letters long
+        for (int i = 1; i <= 10; i++) // when user asks for name from 1-10 letters long
             if ((int)getNameByIndex(i).length() == lengthChoice)
                 count++;
 
@@ -101,7 +103,7 @@ namespace arcade {
         int seen = 0;
 
         // read length of name
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i <= 10; i++) {
             string n = getNameByIndex(i);
             if ((int)n.length() == lengthChoice) {
                 seen++;
@@ -134,7 +136,7 @@ namespace arcade {
                 if (!(cin >> mode)) {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    cout << "Invalid input. Enter 1 or 2.\n";
+                    cout << "Invalid input. Enter 1 or 2.\n\n";
                     continue;
                 }
 
@@ -142,7 +144,7 @@ namespace arcade {
                 if (mode == 1 || mode == 2)
                     break;
 
-                cout << "Invalid choice. Enter 1 or 2.\n";
+                cout << "Invalid choice. Enter 1 or 2.\n\n";
             }
 
             int length = 0;
@@ -178,9 +180,14 @@ namespace arcade {
 
                 cout << "\nGuess the name (" << secret.length() << " letters): ";
                 string guess;
-                // get user guess
                 getline(cin, guess);
 
+                // NEW: Enforce that user's guess MUST be same length as secret
+                while (guess.length() != secret.length()) {
+                    cout << "Your guess must be exactly " << secret.length() << " letters long. Try again: ";
+                    getline(cin, guess);
+            }
+            
                 // if user guess is correct
                 if (compareNames(guess, secret)) {
                     cout << "\nCorrect! The name was: " << secret << "\n";

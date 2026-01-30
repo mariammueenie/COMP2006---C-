@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>    // cin, cout
 #include <cstdlib>      // rand(), srand()
 #include <ctime>        // time()
 #include <limits>       // numeric_limits
@@ -13,12 +13,12 @@
 #include <chrono>       // for milliseconds (sleep)
 
 // Headers
-#include "../include/About.h"
-#include "../include/ArcadeGlobals.h"
+#include "About.h"
+#include "ArcadeGlobals.h"
 #include <ctime>
 
 namespace arcade {
-
+    using namespace std;
 void showAbout() {
 
     string again = "Y";
@@ -54,10 +54,10 @@ void showAbout() {
         cout << " 2. Dice Game (Pick two values and match to win)\n";
         cout << " 3. Lottery Game (1-40, Bonus Tickets, Extra Lines)\n";
         cout << " 4. Guessing Name Game (Letter-matching mode)\n";
-        cout << "//TODO: Insert switch loop to get instructions for each game here"
+        cout << "    //TODO: Insert switch loop to get instructions for each game here";
 
         cout << "\nAdditional Features:\n";
-        cout << " 5. Credits\n\n";
+        cout << " 5. Credits\n";
         cout << " 6. About / Help Page (this page)\n\n";
 
         cout << "Purpose of the Program:\n";
@@ -66,7 +66,7 @@ void showAbout() {
         cout << " the use of namespaces in a C++ project.\n\n";
 
         cout << "====================================\n";
-        cout << " End of About Page — Returning to Menu\n";
+        cout << "         End of About Page\n";
         cout << "====================================\n\n";
     
         
@@ -77,7 +77,5 @@ void showAbout() {
             cout << "\nReturning to main menu...\n";
             return;
         }
-    }
-
-}
+    }}
 } // namespace arcade
