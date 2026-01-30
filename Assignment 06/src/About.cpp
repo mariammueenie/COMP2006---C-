@@ -1,4 +1,4 @@
-#include <iostream>    // cin, cout
+#include <iostream>     // cin, cout
 #include <cstdlib>      // rand(), srand()
 #include <ctime>        // time()
 #include <limits>       // numeric_limits
@@ -16,6 +16,12 @@
 #include "About.h"
 #include "ArcadeGlobals.h"
 #include <ctime>
+
+// DEV TESTING INSTRUCTIONS:
+// Run game in Developer Command Prompt for VS 2022
+// cd into src file 
+// then run IF rebuild needed/desired: cl /EHsc /std:c++17 *.cpp /Fe:ArcadeGame.exe
+// then run: ArcadeGame.exe
 
 namespace arcade {
     using namespace std;

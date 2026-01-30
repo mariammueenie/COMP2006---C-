@@ -56,5 +56,8 @@
         "set": "cpp",
         "vector": "cpp",
         "xtree": "cpp"
-    }
+    },
+    "cSpell.ignoreWords": [
+        "Fayzan"
+    ]
 }

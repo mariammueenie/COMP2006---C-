@@ -14,3 +14,19 @@ Winning Numbers:            4 9 16 19 24 31
 Bonus Number:               12
 FINAL WINNINGS:             $333
 ========================================
+
+========================================
+ LOTTERY RESULTS
+========================================
+Ticket #1 Numbers:          1 2 3 4 5 6 
+Matches:                    2
+Bonus Hit:                  NO
+Bonus Ticket #2:            3 4 12 29 34 40 
+Matches:                    1
+Bonus Hit:                  NO
+Bonus Ticket #3:            5 8 12 14 24 35 
+Bonus Ticket #3:            5 8 12 14 24 35 
+Winning Numbers:            1 5 8 28 29 35 
+Bonus Number:               26
+FINAL WINNINGS:             $2000
+========================================

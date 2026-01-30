@@ -16,7 +16,7 @@
 #include "NameGame.h"
 #include "ArcadeGlobals.h"
 
-//todo: replace raw cin>> with below
+// TODO: replace raw cin>> with below
 // mode = getStrictInteger("Enter choice (1 or 2): ", 1, 2);
 
 
