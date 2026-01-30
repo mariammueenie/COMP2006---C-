@@ -568,7 +568,7 @@ using namespace std;
 
                 guess1 = value;
                 break;
-            }
+            } 
 
             // SECOND USER INPUT
             while (true) {
